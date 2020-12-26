@@ -6,10 +6,9 @@ Nama Anggota:
   
 
   
-#### Nomor 1
+## Nomor 1
 
 Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi SURABAYA menggunakan iptables, namun Bibah tidak ingin kalian menggunakan MASQUERADE.
-----------------------
 
 Jalankan di SURABAYA
 
@@ -23,10 +22,9 @@ POSTROUTING : Digunakan untuk mentranslasi address setelah proses routing. Dilak
 SNAT (Source NAT), yaitu ketika anda mengubah alamat asal dari paket pertama dengan kata lain anda mengubah dari mana koneksi terjadi.
 
 
-#### Nomor 2
+## Nomor 2
 
 Kalian diminta untuk mendrop semua akses SSH dari luar Topologi (UML) Kalian pada server yang memiliki ip DMZ (DHCP dan DNS SERVER) pada SURABAYA demi menjaga keamanan.
---------------------
 
 Jalankan di SURABAYA
 
@@ -39,10 +37,9 @@ FORWARD : Untuk menyaring paket yang menuju ke NIC lain dalam sever atau host la
 -i, --in-interface name 	mendefinisikan opsi interface yang dilihat masuk paketnya
 DROP – Firewall akan menolak paket data.
 
-#### Nomor 3
+## Nomor 3
 
 Karena tim kalian maksimal terdiri dari 3 orang, Bibah meminta kalian untuk membatasi DHCP dan DNS server hanya boleh menerima maksimal 3 koneksi ICMP secara bersamaan yang berasal dari mana saja menggunakan iptables pada masing masing server , selebihnya akan di DROP.
---------------------------------
 
 jalankan  di MALANG dan MOJOKERTO
 
@@ -52,10 +49,9 @@ KETERANGAN :
  connlimit-above untuk menempatkan pembatasan
 –connlimit-mask 0 : Kelompok host berasal dari alamat mana saja.
 
-#### Nomor 4
+## Nomor 4
 
 kemudian kalian diminta untuk membatasi akses ke MALANG yang berasal dari SUBNET SIDOARJO dan SUBNET GRESIK dengan peraturan sebagai berikut: (4) Akses dari subnet SIDOARJO hanya diperbolehkan pada pukul 07.00 - 17.00 pada hari Senin sampai Jumat. Selain itu paket akan di REJECT.
-------------------------------
 
 Jalankan di MALANG
 
@@ -63,24 +59,22 @@ Jalankan di MALANG
     iptables -A INPUT -s 192.168.3.0/24 -m time --timestart 17.01 --timestop 23.59 --weekdays Mon,Tue,Wed,Thu,Fri -j REJECT
     iptables -A INPUT -s 192.168.3.0/24 -m time --timestart 00:00 --timestop 23.59 --weekdays Sat,Sun -j REJECT
     
-#### Nomor 5 
+## Nomor 5 
 
 kemudian kalian diminta untuk membatasi akses ke MALANG yang berasal dari SUBNET SIDOARJO dan SUBNET GRESIK dengan peraturan sebagai berikut: (5) Akses dari subnet GRESIK hanya diperbolehkan pada pukul 17.00 hingga pukul 07.00 setiap harinya. Selain itu paket akan di REJECT.
-------------------------------
 
 Jalankan di MALANG
 
 `iptables -A INPUT -s 192.168.2.0/24 -m time --timestart 07:01 --timestop 16:59 -j REJECT`
 
-#### Nomor 6 
+## Nomor 6 
 
 Karena kita memiliki 2 buah WEB Server, (6) Bibah ingin SURABAYA disetting sehingga setiap request dari client yang mengakses DNS Server akan didistribusikan secara bergantian pada PROBOLINGGO port 80 dan MADIUN port 80.
-----------------
 
-#### Nomor 7
+
+## Nomor 7
 
 Bibah ingin agar semua paket didrop oleh firewall (dalam topologi) tercatat dalam log pada setiap UML yang memiliki aturan drop.
-------------------------
 
 jalankan iptables di UML SURABAYA
 
