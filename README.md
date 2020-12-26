@@ -12,8 +12,10 @@ Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk meng
 ----------------------
 
 Jalankan di SURABAYA
+
 `iptables -t nat -A POSTROUTING -s -192.168.0.0/16 -o eth0 -j SNAT --to-source 10.151.76.85`
 
+KETERANGAN :
 POSTROUTING : Digunakan untuk mentranslasi address setelah proses routing. Dilakukan dengan merubah source IP Address dari paket data
 -s, --source address 	mendefinisikan opsi alamat asal dari paket
 -o, --out-interface name 	mendefinisikan opsi interface yang dilihat keluar paketnya
@@ -27,8 +29,10 @@ Kalian diminta untuk mendrop semua akses SSH dari luar Topologi (UML) Kalian pad
 --------------------
 
 Jalankan di SURABAYA
+
 `iptables -A FORWARD -p tcp --dport 22 -d 10.151.77.168/29 -i eth0 -j DROP`
 
+KETERANGAN : 
 -A, --append chain rule-specification 	menambahkan rules pada chain
 FORWARD : Untuk menyaring paket yang menuju ke NIC lain dalam sever atau host lain (hanya diteruskan/melewati firewall).
 -d, --destination address 	mendefinisikan opsi alamat tujuan dari paket
@@ -41,8 +45,10 @@ Karena tim kalian maksimal terdiri dari 3 orang, Bibah meminta kalian untuk memb
 --------------------------------
 
 jalankan  di MALANG dan MOJOKERTO
+
 `iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP`
 
+KETERANGAN :
  connlimit-above untuk menempatkan pembatasan
 –connlimit-mask 0 : Kelompok host berasal dari alamat mana saja.
 
@@ -96,4 +102,12 @@ jalankan iptables di UML MOJOKERTO
     iptables -A INPUT -j LOGGING 
     iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4 
     iptables -A LOGGING -j DROP
+    
+KETERANGAN :
+iptables -N LOGGING: Buat rantai baru bernama LOGGING
+-m batas: Ini menggunakan modul pencocokan batas. Dengan menggunakan ini, Anda dapat membatasi logging menggunakan opsi –limit.
+–Limit 2 / min: Ini menunjukkan rata-rata tingkat kecocokan maksimum . Dalam contoh ini, untuk paket serupa itu akan membatasi logging menjadi 2 per menit. Anda juga dapat menentukan 2 / detik, 2 / menit, 2 / jam, 2 / hari.
+-j LOG: Ini menunjukkan bahwa target untuk paket ini adalah LOG. yaitu menulis ke file log.
+–Log-prefix “IPTables-Dropped:” Anda dapat menentukan awalan log apa pun, yang akan ditambahkan ke pesan log yang akan ditulis ke file / var / log / messages
+–Log-level 4 Ini adalah level syslog standar. 4 adalah peringatan. Anda dapat menggunakan nomor dari kisaran 0 hingga 7. 0 adalah darurat dan 7 adalah debug.
 
