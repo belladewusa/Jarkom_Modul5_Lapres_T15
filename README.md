@@ -4,8 +4,43 @@ Nama Anggota:
   - Widyantari Febiyanti 05311840000030
   - Nabella Desyawulansari 05311840000039
   
-
   
+## Soal Topologi
+![1](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/topologi%20asli.png)
+
+Diperintahkan membuat topologi seperti diatas dengan ketentuan: 
+- __SURABAYA__ diberikan IP TUNTAP
+- __MALANG__ merupakan DNS Server diberikan IP DMZ
+- __MOJOKERTO__ merupakan DHCP Server diberikan IP DMZ
+- __MADIUN__ dan __PROBOLINGGO__ merupakan WEB Server
+- Setiap Server diberikan memory sebesar 128M
+- Client dan Router diberikan memori sebesar 96M
+- Jumlah host pada subnet __SIDOARJO__ 200 Host
+- Jumlah host pada subnet __GRESIK__ 210 Host
+  
+## Perhitungan Subnetting
+Yang dilakukan adalah: 
+1. Melakukan pembagian subnet seperti dibawah ini:
+
+![2](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/TOPOLOGI(1).jpg)
+
+2. Setelah itu, buat pengelompokan tabel seperti dibawah ini:
+
+![3](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/TABEL(1).jpg)
+
+3. Untuk saat ini, digunakan perhitungan pembagian IP menggunakan cara VLSM. Dan didapatkan seperti dibawah ini:
+
+![4](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/VLSM(1).jpg)
+
+## Pembuatan Topologi di UML
+Setelah mendapatkan IP untuk masing-masing kelompok, bisa langsung diaplikasikan dalam pembuatan topologi di PuTTY. Seperti dibawah: 
+
+![5](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/uml%20putty.jpg)
+
+
+
+
+
 ## Nomor 1
 
 Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi SURABAYA menggunakan iptables, namun Bibah tidak ingin kalian menggunakan MASQUERADE.
