@@ -37,6 +37,39 @@ Setelah mendapatkan IP untuk masing-masing kelompok, bisa langsung diaplikasikan
 
 ![5](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/uml%20putty.jpg)
 
+## Setting interfaces antar UML 
+Perlu dilakukan setting interfaces untuk setiap UML yang telah dibuat. Berikut akan dilampirkan setting interface untuk setiap UML, (untuk router): 
+
+- __SURABAYA__
+
+![6](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/uml%20router%202.png)
+
+- __BATU__ dan __KEDIRI__
+
+![7](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/uml%20router%201.png)
+
+Untuk server: 
+
+- __MADIUN__
+
+![8](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/uml%20server%202.png)
+
+- __MALANG__, __MOJOKERTO__, dan __PROBOLINGGO__
+
+![9](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/uml%20server.png)
+
+Untuk client: 
+
+- __GRESIK__ dan __SIDOARJO__
+
+![10](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/uml%20client.png)
+
+## Setting Routing disetiap UML Router
+Diperlukan routing agar setiap UML bisa saling berhubungan. Routing ini diberikan untuk setiap router yang menjadi penghubung antar server maupun client. Pemasangan routing seperti dibawah: 
+
+Untuk router __SURABAYA__, __BATU__, dan __KEDIRI__: 
+
+![11](https://github.com/belladewusa/Jarkom_Modul5_Lapres_T15/blob/main/JARKOM%20MODUL%205/uml%20routing%20setiap%20router.png)
 
 
 
